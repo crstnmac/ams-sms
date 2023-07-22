@@ -34,14 +34,6 @@
       "eas": {
         "projectId": "469a3257-41a1-4ffa-9e81-25665ba704d7"
       }
-    },
-    "plugins": [
-      [
-        "@vonovak/react-native-theme-control",
-        {
-          "mode": "light"
-        }
-      ]
-    ]
+    }
   }
 }

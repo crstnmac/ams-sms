@@ -5882,20 +5882,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vonovak/react-native-theme-control@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "@vonovak/react-native-theme-control@npm:4.1.1"
-  peerDependencies:
-    expo: ">=48.0.0"
-    react: "*"
-    react-native: ">=0.72.0"
-  peerDependenciesMeta:
-    expo:
-      optional: true
-  checksum: d63c1db2b45795978972790f389147eb40c67b420358e63f0273a2b2699ac1a4975e9c7c629bd347ca4e05a129b8d6c6b63349d0c8cd97677fe807b5bb45edcf
-  languageName: node
-  linkType: hard
-
 "@web3-storage/multipart-parser@npm:^1.0.0":
   version: 1.0.0
   resolution: "@web3-storage/multipart-parser@npm:1.0.0"
@@ -9720,7 +9706,6 @@ __metadata:
     "@react-navigation/native": ^6.1.6
     "@tamagui/babel-plugin": latest
     "@types/react-native": ^0.71.3
-    "@vonovak/react-native-theme-control": ^4.1.1
     app: 0.0.0
     babel-plugin-module-resolver: ^4.1.0
     babel-plugin-transform-inline-environment-variables: ^0.4.4
@@ -9735,6 +9720,7 @@ __metadata:
     expo-sms: ~11.2.1
     expo-splash-screen: ^0.18.1
     expo-status-bar: ^1.4.4
+    expo-system-ui: ~2.2.1
     expo-updates: ^0.16.3
     metro-minify-terser: ^0.74.1
     react: ^18.2.0
@@ -10020,6 +10006,18 @@ __metadata:
   version: 3.1.1
   resolution: "expo-structured-headers@npm:3.1.1"
   checksum: 7bba145baf588525b47b626875b38a9ca1e6279abc6526e106c3417e6256a5a7ed0a686cc75f0235228f9322d93521b894b36d93b4172ddafceb90adfd091693
+  languageName: node
+  linkType: hard
+
+"expo-system-ui@npm:~2.2.1":
+  version: 2.2.1
+  resolution: "expo-system-ui@npm:2.2.1"
+  dependencies:
+    "@react-native/normalize-color": ^2.0.0
+    debug: ^4.3.2
+  peerDependencies:
+    expo: "*"
+  checksum: 5ea05eac2468944459072b41cbe60675d8803dfe6617045a4e516dc5158665d40eb023c19e19fb593c7c4d4140ca3bd11790b357682ec61280ccddfc7d53dbf0
   languageName: node
   linkType: hard
 
