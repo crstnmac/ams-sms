@@ -29,9 +29,9 @@ const DateTimePicker = function DatePicker(props: datePickerProps) {
   }
 
   const handleConfirm = (date: Date) => {
+    hideDatePicker()
     setDate(date)
     props.onConfirm && props.onConfirm(date)
-    hideDatePicker()
   }
 
   const type = props.type || 'date'

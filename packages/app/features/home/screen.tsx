@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useMemo } from 'react'
 import { useInputStore } from 'app/store/useInputStore'
 import * as SMS from 'expo-sms'
 import { Send } from '@tamagui/lucide-icons'
-import DateTimePicker from 'app/components/DateTimePicket'
+import DateTimePicker from 'app/components/DateTimePicker'
 
 export function HomeScreen() {
   const {

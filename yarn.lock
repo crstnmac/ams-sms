@@ -5882,6 +5882,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vonovak/react-native-theme-control@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "@vonovak/react-native-theme-control@npm:4.1.1"
+  peerDependencies:
+    expo: ">=48.0.0"
+    react: "*"
+    react-native: ">=0.72.0"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+  checksum: d63c1db2b45795978972790f389147eb40c67b420358e63f0273a2b2699ac1a4975e9c7c629bd347ca4e05a129b8d6c6b63349d0c8cd97677fe807b5bb45edcf
+  languageName: node
+  linkType: hard
+
 "@web3-storage/multipart-parser@npm:^1.0.0":
   version: 1.0.0
   resolution: "@web3-storage/multipart-parser@npm:1.0.0"
@@ -9706,6 +9720,7 @@ __metadata:
     "@react-navigation/native": ^6.1.6
     "@tamagui/babel-plugin": latest
     "@types/react-native": ^0.71.3
+    "@vonovak/react-native-theme-control": ^4.1.1
     app: 0.0.0
     babel-plugin-module-resolver: ^4.1.0
     babel-plugin-transform-inline-environment-variables: ^0.4.4
