@@ -1,97 +1,221 @@
-import {
-  Anchor,
-  Button,
-  H1,
-  Paragraph,
-  Separator,
-  Sheet,
-  useToastController,
-  XStack,
-  YStack,
-} from '@my/ui'
-import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
-import React, { useState } from 'react'
-import { useLink } from 'solito/link'
+import { Button, Input, Label, ScrollView, Text, TextArea, Theme, XStack, YStack } from '@my/ui'
+import React, { useCallback, useEffect, useMemo } from 'react'
+import { useInputStore } from 'app/store/useInputStore'
+import * as SMS from 'expo-sms'
+import { Send } from '@tamagui/lucide-icons'
+import DateTimePicker from 'app/components/DateTimePicket'
 
 export function HomeScreen() {
-  const linkProps = useLink({
-    href: '/user/nate',
-  })
-
-  return (
-    <YStack f={1} jc="center" ai="center" p="$4" space>
-      <YStack space="$4" maw={600}>
-        <H1 ta="center">Welcome to Tamagui.</H1>
-        <Paragraph ta="center">
-          Here's a basic starter to show navigating from one screen to another. This screen uses the
-          same code on Next.js and React Native.
-        </Paragraph>
-
-        <Separator />
-        <Paragraph ta="center">
-          Made by{' '}
-          <Anchor color="$color12" href="https://twitter.com/natebirdman" target="_blank">
-            @natebirdman
-          </Anchor>
-          ,{' '}
-          <Anchor
-            color="$color12"
-            href="https://github.com/tamagui/tamagui"
-            target="_blank"
-            rel="noreferrer"
-          >
-            give it a ⭐️
-          </Anchor>
-        </Paragraph>
-      </YStack>
-
-      <XStack>
-        <Button {...linkProps}>Link to user</Button>
-      </XStack>
-
-      <SheetDemo />
-    </YStack>
+  const {
+    numOfTeachers,
+    classes,
+    setMessage,
+    setTotalNum,
+    date,
+    setDate,
+    setNumOfTeachers,
+    setClasses,
+  } = useInputStore(
+    ({
+      numOfTeachers,
+      classes,
+      setMessage,
+      setTotalNum,
+      date,
+      setNumOfTeachers,
+      setDate,
+      setClasses,
+    }) => ({
+      numOfTeachers,
+      classes,
+      setMessage,
+      setTotalNum,
+      date,
+      setNumOfTeachers,
+      setDate,
+      setClasses,
+    })
   )
-}
 
-function SheetDemo() {
-  const [open, setOpen] = useState(false)
-  const [position, setPosition] = useState(0)
-  const toast = useToastController()
+  const classValues = Object.values(classes)
+
+  const totalNum = useMemo(
+    () =>
+      classValues.reduce((total, num) => {
+        const parsedNum = Number(num)
+        return isNaN(parsedNum) ? total : total + parsedNum
+      }, 0),
+    [classValues]
+  )
+
+  const message = useMemo(() => {
+    const formattedDate = date?.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    })
+    const classValuesString = classValues.join(', ')
+    return `KARMDM ${formattedDate}, ${numOfTeachers}, ${classValuesString}`
+  }, [date, numOfTeachers, classValues])
+
+  useEffect(() => {
+    setMessage(message)
+    setTotalNum(totalNum.toString())
+  }, [message, totalNum, setMessage, setTotalNum])
+
+  const handleSendSms = useCallback(() => {
+    SMS.sendSMSAsync(['15544'], message)
+  }, [message])
 
   return (
-    <>
-      <Button
-        size="$6"
-        icon={open ? ChevronDown : ChevronUp}
-        circular
-        onPress={() => setOpen((x) => !x)}
-      />
-      <Sheet
-        modal
-        open={open}
-        onOpenChange={setOpen}
-        snapPoints={[80]}
-        position={position}
-        onPositionChange={setPosition}
-        dismissOnSnapToBottom
-      >
-        <Sheet.Overlay />
-        <Sheet.Frame ai="center" jc="center">
-          <Sheet.Handle />
-          <Button
-            size="$6"
-            circular
-            icon={ChevronDown}
-            onPress={() => {
-              setOpen(false)
-              toast.show('Sheet closed!', {
-                message: 'Just showing how toast works...',
-              })
+    <ScrollView>
+      <YStack f={1} p="$4" space>
+        <Label fontSize={'$8'} fontWeight={'700'} textAlign="center">
+          KARNATAKA
+        </Label>
+        <DateTimePicker
+          date={date}
+          onConfirm={(date) => {
+            setDate(date)
+          }}
+          type="date"
+        />
+        <Input
+          placeholder="Enter the number of teachers"
+          value={numOfTeachers === '0' ? '' : numOfTeachers}
+          onChangeText={setNumOfTeachers}
+          keyboardType="numeric"
+        />
+        <Label>Enter the number of students in each class</Label>
+        <XStack space ai={'center'}>
+          <Text>Class 1</Text>
+          <Input
+            placeholder="Class 1"
+            f={1}
+            value={classes.class1}
+            onChangeText={(text) => {
+              setClasses({ ...classes, class1: text })
             }}
+            keyboardType="numeric"
           />
-        </Sheet.Frame>
-      </Sheet>
-    </>
+        </XStack>
+        <XStack space ai={'center'}>
+          <Text>Class 2</Text>
+          <Input
+            placeholder="Class 2"
+            f={1}
+            value={classes.class2}
+            onChangeText={(text) => {
+              setClasses({ ...classes, class2: text })
+            }}
+            keyboardType="numeric"
+          />
+        </XStack>
+        <XStack space ai={'center'}>
+          <Text>Class 3</Text>
+          <Input
+            placeholder="Class 3"
+            f={1}
+            value={classes.class3}
+            onChangeText={(text) => {
+              setClasses({ ...classes, class3: text })
+            }}
+            keyboardType="numeric"
+          />
+        </XStack>
+        <XStack space ai={'center'}>
+          <Text>Class 4</Text>
+          <Input
+            placeholder="Class 4"
+            f={1}
+            value={classes.class4}
+            onChangeText={(text) => {
+              setClasses({ ...classes, class4: text })
+            }}
+            keyboardType="numeric"
+          />
+        </XStack>
+        <XStack space ai={'center'}>
+          <Text>Class 5</Text>
+          <Input
+            placeholder="Class 5"
+            f={1}
+            value={classes.class5}
+            onChangeText={(text) => {
+              setClasses({ ...classes, class5: text })
+            }}
+            keyboardType="numeric"
+          />
+        </XStack>
+        <XStack space ai={'center'}>
+          <Text>Class 6</Text>
+          <Input
+            placeholder="Class 6"
+            f={1}
+            value={classes.class6}
+            onChangeText={(text) => {
+              setClasses({ ...classes, class6: text })
+            }}
+            keyboardType="numeric"
+          />
+        </XStack>
+        <XStack space ai={'center'}>
+          <Text>Class 7</Text>
+          <Input
+            placeholder="Class 7"
+            f={1}
+            value={classes.class7}
+            onChangeText={(text) => {
+              setClasses({ ...classes, class7: text })
+            }}
+            keyboardType="numeric"
+          />
+        </XStack>
+        <XStack space ai={'center'}>
+          <Text>Class 8</Text>
+          <Input
+            placeholder="Class 8"
+            f={1}
+            value={classes.class8}
+            onChangeText={(text) => {
+              setClasses({ ...classes, class8: text })
+            }}
+            keyboardType="numeric"
+          />
+        </XStack>
+        <XStack space ai={'center'}>
+          <Text>Class 9</Text>
+          <Input
+            placeholder="Class 9"
+            f={1}
+            value={classes.class9}
+            onChangeText={(text) => {
+              setClasses({ ...classes, class9: text })
+            }}
+            keyboardType="numeric"
+          />
+        </XStack>
+        <XStack space ai={'center'}>
+          <Text>Class 10</Text>
+          <Input
+            placeholder="Class 10"
+            f={1}
+            value={classes.class10}
+            onChangeText={(text) => {
+              setClasses({ ...classes, class10: text })
+            }}
+            keyboardType="numeric"
+          />
+        </XStack>
+        <Label>Total Number of Students:</Label>
+        <Input editable={false}>{totalNum}</Input>
+        <TextArea editable={false} value={message} numberOfLines={2} />
+        <Theme name={'green_alt1'}>
+          <Button onPress={handleSendSms} iconAfter={Send}>
+            Send SMS
+          </Button>
+        </Theme>
+      </YStack>
+    </ScrollView>
   )
 }

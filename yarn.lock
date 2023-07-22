@@ -3570,6 +3570,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/datetimepicker@npm:6.7.3":
+  version: 6.7.3
+  resolution: "@react-native-community/datetimepicker@npm:6.7.3"
+  dependencies:
+    invariant: ^2.2.4
+  checksum: ad08d786aafe8c33135c5f2bdc227d54970bf41ee9f9876a7d4ed365733f02c6e4fb2b8df8f0c45702e5aee43843fe78b7c04c1ff7a1862cde48789e68b9d355
+  languageName: node
+  linkType: hard
+
 "@react-native/assets@npm:1.0.0":
   version: 1.0.0
   resolution: "@react-native/assets@npm:1.0.0"
@@ -6147,6 +6156,7 @@ __metadata:
   resolution: "app@workspace:packages/app"
   dependencies:
     "@my/ui": 0.0.1
+    "@react-native-community/datetimepicker": 6.7.3
     "@tamagui/animations-react-native": latest
     "@tamagui/colors": latest
     "@tamagui/font-inter": latest
@@ -6158,6 +6168,7 @@ __metadata:
     burnt: ^0.10.0
     expo-constants: ^14.2.1
     expo-linking: ^4.0.1
+    react-native-modal-datetime-picker: ^17.0.0
     react-native-safe-area-context: ^4.5.2
     solito: ^3.0.0
   languageName: unknown
@@ -9706,6 +9717,7 @@ __metadata:
     expo-linear-gradient: ^12.1.2
     expo-linking: ^4.0.1
     expo-router: ^1.4.3
+    expo-sms: ~11.2.1
     expo-splash-screen: ^0.18.1
     expo-status-bar: ^1.4.4
     expo-updates: ^0.16.3
@@ -9719,6 +9731,7 @@ __metadata:
     react-native-svg: 13.4.0
     react-native-web: ^0.18.12
     typescript: ^5.1.3
+    zustand: ^4.3.9
   languageName: unknown
   linkType: soft
 
@@ -9957,6 +9970,15 @@ __metadata:
     react-native-reanimated:
       optional: true
   checksum: ff092ce6b98dd73434872431c792453bc05873dea094124b5acfec72f6560452c4e00fb8e773c985e328f6f4d457e640d1a39102b68b7936dfff411a69801d51
+  languageName: node
+  linkType: hard
+
+"expo-sms@npm:~11.2.1":
+  version: 11.2.1
+  resolution: "expo-sms@npm:11.2.1"
+  peerDependencies:
+    expo: "*"
+  checksum: 7c59872ca18396fa7f0d9a354d08805881d0f77c08446e1e20681f7ad86fed54185f7e2ee79904234867c2d24d2d6ae552408b943b5edbcc8d8910850cdb251b
   languageName: node
   linkType: hard
 
@@ -16123,6 +16145,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-modal-datetime-picker@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "react-native-modal-datetime-picker@npm:17.0.0"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    "@react-native-community/datetimepicker": ">=6.7.0"
+    react-native: ">=0.65.0"
+  checksum: 8cfc7257e45cd5c073db13ee653447d33f18f86aae58e04f55d4bd93e6a900aeed10831e4201867afc328fe0792f133f6648040e4977f4a13755e73a878c3b86
+  languageName: node
+  linkType: hard
+
 "react-native-safe-area-context@npm:^4.5.2":
   version: 4.5.2
   resolution: "react-native-safe-area-context@npm:4.5.2"
@@ -19836,6 +19870,23 @@ __metadata:
     react:
       optional: true
   checksum: 355b414ba4830b6106bcb888077c5f90f40ed649e4127e337eff4fb4ea90e88bf5cccf32344711d743cb92a676a0643a6ab3674ddc60ed49f17ea1bc8e3f58e2
+  languageName: node
+  linkType: hard
+
+"zustand@npm:^4.3.9":
+  version: 4.3.9
+  resolution: "zustand@npm:4.3.9"
+  dependencies:
+    use-sync-external-store: 1.2.0
+  peerDependencies:
+    immer: ">=9.0"
+    react: ">=16.8"
+  peerDependenciesMeta:
+    immer:
+      optional: true
+    react:
+      optional: true
+  checksum: fc83d653913fa537c354ba8b95d3a4fdebe62d2ebd3d9f5aeff2edf062811c0f5af48e02ab4da32b666752fd4f3e78c2b44624e445254f48503595435d4a7d70
   languageName: node
   linkType: hard
 
