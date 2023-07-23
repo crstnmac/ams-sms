@@ -55,7 +55,7 @@ export function HomeScreen() {
       year: 'numeric',
     })
     const classValuesString = classValues.join(', ')
-    return `KARMDM ${formattedDate}, ${numOfTeachers}, ${classValuesString}`
+    return `KARMDM\n${formattedDate}, ${numOfTeachers}, ${classValuesString}`
   }, [date, numOfTeachers, classValues])
 
   useEffect(() => {
@@ -68,7 +68,11 @@ export function HomeScreen() {
   }, [message])
 
   return (
-    <ScrollView>
+    <ScrollView
+      keyboardDismissMode="on-drag"
+      keyboardShouldPersistTaps="handled"
+      contentInsetAdjustmentBehavior="always"
+    >
       <YStack f={1} p="$4" space>
         <Label fontSize={'$8'} fontWeight={'700'} textAlign="center">
           KARNATAKA
