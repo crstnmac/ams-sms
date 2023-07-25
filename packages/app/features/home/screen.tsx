@@ -79,10 +79,9 @@ export function HomeScreen() {
         </Label>
         <DateTimePicker
           date={date}
-          onConfirm={(date) => {
-            setDate(date)
+          onChange={(params) => {
+            setDate(params.date as Date)
           }}
-          type="date"
         />
         <Input
           placeholder="Enter the number of teachers"

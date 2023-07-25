@@ -21,14 +21,17 @@ module.exports = function (api) {
       ...(process.env.EAS_BUILD_PLATFORM === 'android'
         ? []
         : [
-            [
-              '@tamagui/babel-plugin',
-              {
-                components: ['@my/ui', 'tamagui'],
-                config: './tamagui.config.ts',
-              },
-            ],
-          ]),
+          [
+            '@tamagui/babel-plugin',
+            {
+              components: ['@my/ui', 'tamagui'],
+              config: './tamagui.config.ts',
+            },
+          ],
+          [
+            'react-native-paper/babel'
+          ]
+        ]),
       [
         'transform-inline-environment-variables',
         {

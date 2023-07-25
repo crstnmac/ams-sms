@@ -7,7 +7,6 @@ type InputStoreState = {
   classes: Record<string, string>;
   totalNum: string;
   message: string;
-
 };
 
 type InputStoreSetters = {
