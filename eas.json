@@ -10,7 +10,14 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "distribution": "store",
+      "autoIncrement": true,
+      "credentialsSource": "remote",
+      "android": {
+        "autoIncrement": true
+      }
+    }
   },
   "submit": {
     "production": {}

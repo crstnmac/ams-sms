@@ -257,11 +257,14 @@ export function KarnatakaScreen() {
       />
       <TextInput
         editable={false}
-        value={message}
-        numberOfLines={2}
+        textBreakStrategy="balanced"
+        multiline={true}
         contentStyle={{
-          height: 40,
+          flex: 1,
+          height: 80,
+          justifyContent: 'center',
         }}
+        value={message}
       />
       <View
         style={{
