@@ -28,6 +28,9 @@ export function WestBengalScreen() {
       }}
       renderItem={({item}) => (
         <Button
+          contentStyle={{
+            padding: 6,
+          }}
           mode="outlined"
           onPress={() => router.push(`/westbengal/${item.slug}`)}
         >

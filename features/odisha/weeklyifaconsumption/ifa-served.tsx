@@ -88,7 +88,7 @@ export default function MealsServed() {
         icon="send"
         mode="contained"
         onPress={handleSubmit(onSubmit)}
-        contentStyle={{flexDirection: 'row-reverse'}}
+        contentStyle={{flexDirection: 'row-reverse', padding: 6}}
       >
         Send SMS
       </Button>

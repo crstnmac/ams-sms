@@ -1,5 +1,5 @@
-import { Slot } from 'expo-router'
+import {Stack} from 'expo-router'
 
-export function KarnatakaLayout() {
-  return <Slot />
+export default function Layout() {
+  return <Stack />
 }

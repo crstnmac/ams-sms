@@ -1,7 +1,7 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome'
 import {ThemeProvider} from '@react-navigation/native'
 import {useFonts} from 'expo-font'
-import {SplashScreen, Stack} from 'expo-router'
+import {Slot, SplashScreen, Stack} from 'expo-router'
 import {useEffect, useMemo} from 'react'
 import {useColorScheme} from 'react-native'
 import {
@@ -82,7 +82,11 @@ function RootLayoutNav() {
         <ThemeProvider // @ts-ignore
           value={paperTheme}
         >
-          <Stack />
+          <Stack
+            screenOptions={{
+              headerShown: false,
+            }}
+          />
         </ThemeProvider>
       </PaperProvider>
     </GestureHandlerRootView>

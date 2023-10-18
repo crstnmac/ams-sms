@@ -1,5 +1,6 @@
-import { OdishaScreen } from '../../features/odisha/screen'
-import { Stack } from 'expo-router'
+import CustomNavigationBar from '../../components/CustomNavigationBar'
+import {OdishaScreen} from '../../features/odisha/screen'
+import {Stack} from 'expo-router'
 
 export default function Screen() {
   return (
@@ -7,6 +8,9 @@ export default function Screen() {
       <Stack.Screen
         options={{
           title: 'Odisha',
+          header: (
+            props // @ts-ignore
+          ) => <CustomNavigationBar {...props} />,
         }}
       />
       <OdishaScreen />

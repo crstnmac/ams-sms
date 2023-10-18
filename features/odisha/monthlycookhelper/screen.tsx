@@ -1,6 +1,6 @@
 import {View} from 'react-native'
 import React from 'react'
-import {Button, TextInput,Text} from 'react-native-paper'
+import {Button, TextInput, Text} from 'react-native-paper'
 import {Controller, useForm} from 'react-hook-form'
 import * as SMS from 'expo-sms'
 import BottomSheetSelect from '../../../components/BottomSheetSelect'
@@ -22,10 +22,12 @@ export function MonthlyCookHelper() {
     {
       value: '1',
       label: '1',
-    }, {
+    },
+    {
       value: '2',
       label: '2',
-    }, {
+    },
+    {
       value: '3',
       label: '3',
     },
@@ -36,13 +38,15 @@ export function MonthlyCookHelper() {
     {
       value: '5',
       label: '5',
-    }, {
+    },
+    {
       value: '6',
       label: '6',
-    }, {
+    },
+    {
       value: '7',
       label: '7',
-    }
+    },
   ]
 
   async function onSubmit(data: MonthlyCookFormInputs) {
@@ -120,7 +124,7 @@ export function MonthlyCookHelper() {
         icon="send"
         mode="contained"
         onPress={handleSubmit(onSubmit)}
-        contentStyle={{flexDirection: 'row-reverse'}}
+        contentStyle={{flexDirection: 'row-reverse', padding: 6}}
       >
         Send SMS
       </Button>

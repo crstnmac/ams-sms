@@ -4,7 +4,7 @@ import {
   BottomSheetModalProvider,
   BottomSheetView,
 } from '@gorhom/bottom-sheet'
-import {View} from 'react-native'
+import {View, useColorScheme} from 'react-native'
 import {Portal, RadioButton, TextInput} from 'react-native-paper'
 
 export interface Option {
@@ -23,9 +23,11 @@ const BottomSheetSelect = ({
   options,
   selectedOption,
   onSelect,
-  label
+  label,
 }: BottomSheetSelectProps) => {
   const sheetRef = React.useRef<BottomSheetModal>(null)
+
+  const colorSheme = useColorScheme()
 
   return (
     <View>
@@ -54,7 +56,6 @@ const BottomSheetSelect = ({
             enableDynamicSizing={true}
             enablePanDownToClose={true}
             style={{
-              backgroundColor: 'white',
               shadowColor: '#000',
               shadowOffset: {
                 width: 0,
@@ -67,11 +68,19 @@ const BottomSheetSelect = ({
             }}
             animateOnMount={true}
             enableDismissOnClose={true}
+            backgroundStyle={{
+              backgroundColor: colorSheme === 'dark' ? '#121212' : '#fff',
+              borderWidth: 0.5,
+              borderColor: colorSheme === 'dark' ? '#f0f0f0' : '#0f0f0f0f',
+            }}
+            handleIndicatorStyle={{
+              backgroundColor: colorSheme === 'dark' ? '#fff' : '#000',
+            }}
           >
             <BottomSheetView
               style={{
                 padding: 10,
-                paddingBottom: 20
+                paddingBottom: 20,
               }}
             >
               <RadioButton.Group

@@ -39,6 +39,9 @@ export function OdishaScreen() {
       }}
       renderItem={({item}) => (
         <Button
+          contentStyle={{
+            padding: 6,
+          }}
           mode="outlined"
           onPress={() => router.push(`/odisha/${item.slug}`)}
         >

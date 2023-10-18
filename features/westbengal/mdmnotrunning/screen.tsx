@@ -92,10 +92,11 @@ export function MDMNotRunning() {
       <View style={{height: 16}} />
 
       <Button
+        
         icon="send"
         mode="contained"
         onPress={handleSubmit(onSubmit)}
-        contentStyle={{flexDirection: 'row-reverse'}}
+        contentStyle={{flexDirection: 'row-reverse', padding: 6}}
       >
         Send SMS
       </Button>

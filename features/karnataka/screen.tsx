@@ -270,7 +270,7 @@ export function KarnatakaScreen() {
       />
       <Button
         icon="send"
-        contentStyle={{flexDirection: 'row-reverse'}}
+        contentStyle={{flexDirection: 'row-reverse', padding: 6}}
         mode="contained"
         onPress={handleSendSms}
       >
